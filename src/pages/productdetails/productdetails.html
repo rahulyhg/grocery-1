@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Product Details</ion-title>
+    <ion-buttons right (click)="goToCart('CartPage')">
+         <button ion-button icon-only>
+            <ion-badge color="dark" *ngIf="cart.length" >{{cart.length}}</ion-badge>
+            <ion-icon name="cart"></ion-icon>
+         </button>
+      </ion-buttons>
+       <ion-buttons end>
+      <cart-indicator (wasClicked)="openCart()"></cart-indicator>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+<ion-card  *ngIf='product'>
+  <img src="assets/imgs/{{product.p_image_id}}.jpg">
+  <ion-card-content no-padding>
+  <ion-item-divider color="light" >Product SKU: {{product.product_sku}}</ion-item-divider>
+  <ion-item-divider color="light" >Product Manufacture: {{product.product_manufacturer}}</ion-item-divider>
+  <ion-item-divider color="light" >Product Tags: {{product.product_tags}}</ion-item-divider>
+  <ion-item-divider color="light" >Product Name {{product.product_name}}</ion-item-divider>
+  <ion-item-divider color="light">Price: ${{product.product_price}}</ion-item-divider>
+  <div color="light" padding>Product Description: {{product.product_description}}</div>
+  <ion-list no-margin>
+    <ion-item>
+      <ion-label>Aatta</ion-label>
+      <ion-select [(ngModel)]="myAtta" multiple="true">
+        <ion-option value="1Kg">1Kg</ion-option>
+        <ion-option value="2Kg">2Kg</ion-option>
+        <ion-option value="3Kg">3Kg</ion-option>
+        <ion-option value="4Kg">4Kg</ion-option>
+        <ion-option value="5Kg">5Kg</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list> 
+  <ion-item-divider color="light">Free Shipping</ion-item-divider>
+</ion-card-content>
+  <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="danger" icon-start (click)="addToCart($event, product)">
+          <ion-icon name='cart'></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='heart'></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-start (click)="shareInfo()">
+          <ion-icon name='share-alt'></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+</ion-card>
+</ion-content>

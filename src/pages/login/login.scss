@@ -1,0 +1,19 @@
+page-login {
+	
+    img.img-logo {
+    width: 145px;
+    height: auto;
+   }
+   .pt-50 {
+    padding-top: 50px;
+   }
+   .bg-login{
+       background-image: url(/assets/imgs/home_bg.jpg); 
+   }
+   .item-md {
+    background-color: transparent; 
+   }
+   .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+    color: #fff;
+   }
+}	

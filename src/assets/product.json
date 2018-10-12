@@ -1,0 +1,73 @@
+[  
+      {  
+         "id":1,
+         "name":"New Chicken Maharaja",
+         "description":"Product Description",
+         "image":"chicken_maharaja",
+         "price":183
+      },
+      {  
+         "id":2,
+         "name":"Big Spicy Chicken Wrap",
+         "description":"Product Description",
+         "image":"big_spicy_chicken_wrap",
+         "price":172
+      },
+      {  
+         "id":3,
+         "name":"Big Spicy Paneer Wrap",
+         "description":"Product Description",
+         "image":"big_spicy_paneer_wrap",
+         "price":167
+      },
+      {  
+         "id":4,
+         "name":"Veg Maharaja Mac",
+         "description":"Product Description",
+         "image":"veg_maharaja",
+         "price":177
+      },
+      {  
+         "id":5,
+         "name":"McSpicy Chicken",
+         "description":"Product Description",
+         "image":"Mcspicy_chicken",
+         "price":123
+      },
+      {  
+         "id":6,
+         "name":"McSpicy Paneer",
+         "description":"Product Description",
+         "image":"McSpicy_paneer",
+         "price":147
+      },
+      {  
+         "id":7,
+         "name":"Filet-O-Fish",
+         "description":"Product Description",
+         "image":"filet_o_fish",
+         "price":167
+      },
+      {  
+         "id":8,
+         "name":"Salad wrap",
+         "description":"Product Description",
+         "image":"salad_wrap",
+         "price":127
+      },
+      {  
+         "id":9,
+         "name":"McChicken",
+         "description":"Product Description",
+         "image":"mc_chicken",
+         "price":167
+      },
+      {  
+         "id":10,
+         "name":"McVeggie",
+         "description":"Product Description",
+         "image":"mc_veggie",
+         "price":127
+      }
+   ]
+

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Checkout</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<ion-card>
+<ion-list>
+<form [formGroup]="contactForm" method="post" role="form" (ngSubmit)="onSubmitContactForm()"> 
+   <ion-list radio-group name="payment_mode" formControlName="payment_mode"  [(ngModel)]="data.payment_mode">
+        <ion-item-divider color="light">Payment Mode</ion-item-divider>
+        <ion-item>
+            <ion-label>Cash on delivery</ion-label>
+            <ion-radio checked="true" value="Cash on delivery"></ion-radio>
+        </ion-item>
+    </ion-list>
+   <ion-list>
+  <ion-item>
+    <ion-label floating>Full Name</ion-label>
+    <ion-input type="text" name="fname" formControlName="fname"   [(ngModel)]="data.fname"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="email" name="email" formControlName="email" [(ngModel)]="data.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Phone Number</ion-label> 
+    <ion-input type="number" name="number" formControlName="number"  [(ngModel)]="data.number"></ion-input>
+  </ion-item>
+     <ion-item>
+    <ion-label floating>Pin</ion-label> 
+    <ion-input type="number" name="pin" formControlName="pin"  [(ngModel)]="data.pin"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label floating>Address</ion-label> 
+    <ion-input type="text" name="c_address" formControlName="c_address"  [(ngModel)]="data.c_address"></ion-input>
+  </ion-item>
+</ion-list>
+ </form>
+  <ion-item>
+    <button ion-button color="secondary" full round (click)="contactSubmit()"  [disabled]="!contactForm.valid">Pay</button>
+  </ion-item>
+</ion-list>
+</ion-card>
+<ion-card>
+  <ion-card-header>
+    Response
+  </ion-card-header>
+  <ion-card-content>
+      <b> {{data.response}}</b>
+  </ion-card-content>
+</ion-card>
+</ion-content>

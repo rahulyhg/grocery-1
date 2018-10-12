@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>pdcc</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+
+ <!--p *ngIf="data">{{data['p_name']}} <br> Price: {{data['p_price']}}</p-->
+<ion-card *ngIf='product'>
+ <img src="assets/imgs/{{product.p_image_id}}.jpg">
+  <ion-card-content no-padding>
+  <ion-item-divider color="light">{{product.p_name}}</ion-item-divider>
+  <ion-item-divider color="light">Product: ${{product.p_id}}</ion-item-divider>
+  <ion-item-divider color="light">Price: ${{product.p_price}}</ion-item-divider>
+  <ion-item-divider color="light">{{product.p_description}}</ion-item-divider>
+  <ion-item-divider color="light">Free Shipping</ion-item-divider>
+</ion-card-content>
+  <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="danger" icon-start (click)="addToCart($event, product)">
+          <ion-icon name='cart'></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='heart'></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-start (click)="shareInfo()">
+          <ion-icon name='share-alt'></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+</ion-card>
+</ion-content>

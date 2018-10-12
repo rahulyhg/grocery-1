@@ -1,0 +1,40 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Payment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-card>
+<ion-list radio-group>
+  <ion-item>
+    <ion-label>Credit Cart</ion-label>
+    <ion-radio checked="true" value="creditcard"></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Net Banking</ion-label>
+    <ion-radio value="netbanking"></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>COD</ion-label>
+    <ion-radio value="cod"></ion-radio>
+  </ion-item>
+
+    <ion-item>
+    <ion-label>payTM</ion-label>
+    <ion-radio value="paytm"></ion-radio>
+  </ion-item>
+
+  <ion-item>
+  	<button ion-button color="secondary" full round (click)="payment()">PAY</button>
+  </ion-item>
+
+</ion-list>
+</ion-card>	
+</ion-content>
