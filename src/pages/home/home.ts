@@ -59,7 +59,7 @@ export class HomePage implements OnInit {
     productSource: Product[] = [];
     @Input() search: string = "";
     cart: CartItem[] = [];
-    public userDetails : any;
+   // public userDetails : any;
     public resposeData : any;
     public dataProduct :any;
     itemProductData = {
@@ -77,9 +77,9 @@ export class HomePage implements OnInit {
         public common: Common
     ) {
            const data = JSON.parse(localStorage.getItem('userData'));
-              this.userDetails = data.userData;
-              this.itemProductData.user_id = this.userDetails.user_id;
-              this.itemProductData.token = this.userDetails.token;
+            //  this.userDetails = data.userData;
+             // this.itemProductData.user_id = this.userDetails.user_id;
+             // this.itemProductData.token = this.userDetails.token;
               this.getProduct();
       this.items_a = [
       { gameTitle: 'Title1', gameImage: 'assets/imgs/1.jpeg' },
@@ -108,7 +108,7 @@ export class HomePage implements OnInit {
    //get Product Data with Api 
    getProduct() {
     this.common.presentLoading();
-    this.authService.postData(this.itemProductData, "product")
+    this.authService.postDagetta(this.itemProductData, "product")
       .then((result) => {
         this.resposeData = result;
         if (this.resposeData.productData) {
