@@ -21,10 +21,6 @@ $app-direction: ltr;
 // the Sass variables found in Ionic's source scss files.
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
-
-
-
-
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
@@ -39,11 +35,12 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
+  slider:#f39e0f
 );
 
 
 // custom css
-$toolbar-background:color($colors, primary);
+$toolbar-background:color($colors, slider);
 
 
 // App iOS Variables

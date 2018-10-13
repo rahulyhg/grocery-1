@@ -1,0 +1,29 @@
+  <ion-content padding class="bg-login">
+  <ion-slides pager>
+    <ion-slide *ngFor="let slide of slides">
+      <ion-toolbar>
+        <ion-buttons end>
+          <button ion-button color="light" (click)="goHome()">Skip</button>
+        </ion-buttons>
+      </ion-toolbar>
+      <img [src]="slide.image">
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description" color="light"></p>
+      <button ion-button round full (click)=" nextSlide()">Next</button>
+    </ion-slide>
+    <ion-slide>
+      <ion-toolbar>
+      </ion-toolbar>
+      <img src="assets/imgs/ica-slidebox-img-1.png" class="slide-image"/>
+      <h2 class="slide-title">Ready to Lunch?</h2>
+      <!-- >button ion-button large clear icon-end color="primary">
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button -->
+      <ion-item no-lines class="pt-50">
+        <button ion-button color="secondary" round full (click)="signup()">SIGNUP</button>
+        <button ion-button round color="dark" full (click)="login()">Login</button>
+     </ion-item>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

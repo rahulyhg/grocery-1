@@ -14,6 +14,8 @@ import { OrdersPage } from '../pages/orders/orders';
 import { SettingPage } from '../pages/setting/setting';
 import { TicketsPage } from '../pages/tickets/tickets';
 import { WhishlistPage } from '../pages/whishlist/whishlist';
+import { HomesliderPage } from '../pages/homeslider/homeslider';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -21,7 +23,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   cartItemCount = 0;
   toastDuration = 2000;
-  rootPage: any = LoginPage;
+  rootPage: any = HomesliderPage;
  //  public userDetails : any;
   // public resposeData : any;
   // itemProductData = {
