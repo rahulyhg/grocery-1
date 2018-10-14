@@ -1,7 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CartProvider} from '../../providers/cart/cart.service';
-
-
 @Component({
   selector: 'cart-indicator',
   template: `
@@ -19,7 +17,7 @@ export class CartIndicatorComponent implements OnInit {
 
   itemAdded = false;
   itemRemoved = false;
-  totalCount = 0;
+  totalCount = 1;
   statusDelay = 500;
   @Output() wasClicked = new EventEmitter();
 

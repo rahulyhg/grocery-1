@@ -24,7 +24,7 @@ export class HomesliderPage {
       title: "Welcome to the Grocery!",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque maximus, dui accumsan cursus lacinia, nisl risus.",
       image: "assets/imgs/ica-slidebox-img-1.png",
-      
+
     },
     {
       title: "Your delicious dish is coming!",
@@ -37,10 +37,10 @@ export class HomesliderPage {
       image: "assets/imgs/ica-slidebox-img-1.png",
     }
   ];
-   signup(){
+   doSignup(){
     this.navCtrl.setRoot(SignupPage);
    }
-   login(){
+   doLogin(){
      this.navCtrl.setRoot(LoginPage);
    }
    goHome(){

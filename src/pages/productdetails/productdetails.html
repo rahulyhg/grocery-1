@@ -2,19 +2,16 @@
   <ion-navbar>
     <ion-title>Product Details</ion-title>
     <ion-buttons right (click)="goToCart('CartPage')">
-         <button ion-button icon-only>
+         <button ion-button icon-only end>
             <ion-badge color="dark" *ngIf="cart.length" >{{cart.length}}</ion-badge>
             <ion-icon name="cart"></ion-icon>
          </button>
       </ion-buttons>
-       <ion-buttons end>
-      <cart-indicator (wasClicked)="openCart()"></cart-indicator>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content >
 <ion-card  *ngIf='product'>
-  <img src="assets/imgs/{{product.p_image_id}}.jpg">
+  <img src="{{product.product_image}}">
   <ion-card-content no-padding>
   <ion-item-divider color="light" >Product SKU: {{product.product_sku}}</ion-item-divider>
   <ion-item-divider color="light" >Product Manufacture: {{product.product_manufacturer}}</ion-item-divider>

@@ -63,10 +63,7 @@ export class HomePage implements OnInit {
     public resposeData : any;
     public dataProduct :any;
     itemProductData = {
-     "user_id": "",
-    "token": "",
-    "p_name": "",   
-    "p_id":""
+    "token": ""
      };
     constructor(private navCtrl: NavController,
         private changeDetector: ChangeDetectorRef,
@@ -108,7 +105,7 @@ export class HomePage implements OnInit {
    //get Product Data with Api 
    getProduct() {
     this.common.presentLoading();
-    this.authService.postDagetta(this.itemProductData, "product")
+    this.authService.getData(this.itemProductData, "getProduct")
       .then((result) => {
         this.resposeData = result;
         if (this.resposeData.productData) {

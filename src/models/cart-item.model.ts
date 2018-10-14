@@ -1,7 +1,10 @@
 export interface CartItem {
   product_price: number;
-  product_image_id:string;
+  product_image:string;
   product_name:string;
-  product_id:number;
+  id:number;
   product_description:string;
+  product_tags:string;
+  product_manufacturer:string;
+  product_sku:number;
 }

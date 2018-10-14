@@ -21,15 +21,11 @@ export class ProductsPage  implements OnInit {
   productSource: Product[] = [];
   @Input() search: string = "";
   cart: CartItem[] = [];
-  public userDetails : any;
   public resposeData : any;
   public dataProduct :any;
   itemProductData = {
-     "user_id": "",
     "token": "",
-    "p_name": "",   
-    "p_id":""
-     };
+    };
   constructor(public navCtrl: NavController,
     public menu: MenuController, 
     public http: HttpClient, 
@@ -39,11 +35,7 @@ export class ProductsPage  implements OnInit {
     public common: Common
     )
       {         
-      const data = JSON.parse(localStorage.getItem('userData'));
-      this.userDetails = data.userData;
-      this.itemProductData.user_id = this.userDetails.user_id;
-      this.itemProductData.token = this.userDetails.token;
-      this.getProduct();
+       this.getProduct();
       }
    ionViewWillEnter() : void
     {}
@@ -69,7 +61,7 @@ export class ProductsPage  implements OnInit {
    //get Product Data with Api 
    getProduct() {
     this.common.presentLoading();
-    this.authService.postData(this.itemProductData, "product")
+    this.authService.getData(this.itemProductData, "getProduct")
       .then((result) => {
         this.resposeData = result;
         if (this.resposeData.productData) {

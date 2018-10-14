@@ -3,7 +3,7 @@
     <ion-title>My Cart</ion-title>
       <ion-buttons right *ngIf="!hideCart">
          <button ion-button icon-only>
-            <ion-badge color="dark" *ngIf="cart.length" >{{p_qty}} </ion-badge>
+            <ion-badge color="dark" *ngIf="cart.length" >{{cart.length}} </ion-badge>
             <ion-icon name="cart"></ion-icon>
          </button>
       </ion-buttons>
@@ -13,15 +13,15 @@
   <!--p *ngIf="data">{{data.product_name}} <br> Price: {{data.product_price*qty}} </p-->
   <span *ngIf="!hideCart">
   <ion-card *ngFor="let product of cart; let index = index">
-  <img src="assets/imgs/{{product.p_image_id}}.jpg"/>
+  <img src="{{product.product_image}}"/>
   <ion-card-content no-padding>
     <span>
       <ion-item-divider color="light" >Product SKU: {{product.product_sku}}</ion-item-divider>
       <ion-item-divider color="light" >Product Manufacture: {{product.product_manufacturer}}</ion-item-divider>
       <ion-item-divider color="light" >Product Tags: {{product.product_tags}}</ion-item-divider>
       <ion-item-divider color="light" >Product Name: {{product.product_name}}</ion-item-divider>
-      <ion-item-divider color="light">Price: ${{product.product_price}}</ion-item-divider>
-      <div color="light" padding>Product Description: {{product.product_description}}</div>
+      <ion-item-divider color="light">Product Price: ₹ {{product.product_price}}</ion-item-divider>
+      <div color="light" padding> <strong>Product Description:</strong>  {{product.product_description}}</div>
       <ion-item-divider color="light">Free Shipping</ion-item-divider>
        <ion-item-divider color="dark">{{p_qty}} <strong>₹ {{p_qty*product.product_price  }}</strong></ion-item-divider>
       </span>
@@ -52,11 +52,14 @@
 </ion-card>
   </span>
   <ion-item-divider color="light">{{myAtta}}</ion-item-divider>
+  <p *ngIf="!cart.length" padding text-center>
+     Cart is Empty Please add Item
+  </p>
 </ion-content>
 <ion-footer no-padding no-margin *ngIf="!hideCart">
     <ion-row>
         <ion-col col-6>
-           <button ion-button full large color="header" no-padding no-margin >Total: ₹ {{p_qty*calcTotalSum()}} </button>
+           <button ion-button full large color="header" no-padding no-margin *ngIf="cart.length"> Total: ₹{{calcTotalSum()}} </button>
         </ion-col>
         <ion-col col-6>
            <button ion-button full large color="header" no-padding no-margin  *ngIf="cart.length"  (click)="goCheckout()">Checkout &nbsp; <ion-icon name="card"></ion-icon></button>

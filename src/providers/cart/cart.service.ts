@@ -9,27 +9,34 @@ import {  ToastController} from 'ionic-angular';
 @Injectable()
 export class CartProvider {
 
+  total_qty=0;
+
   public cart: CartItem[] = [];
   constructor(public http: HttpClient,
               // public authServiceProvider: AuthServiceProvider
               private toastCtrl: ToastController,
               )
-           {}
+           {
 
+           }
   public statusChanged = new EventEmitter<{type: string; totalCount: number}>();
   getCart(): CartItem[] {
     return this.cart;
   };
   addCartItem(product: Product): void {
       this.cart.push({
-      product_id: product.product_id,
+      id: product.id,
       product_name: product.product_name,
       product_price: product.product_price,
-      product_image_id:product.product_image_id,
+      product_image:product.product_image,
+      product_manufacturer: product.product_manufacturer,
+      product_tags: product.product_tags,
+      product_sku:product.product_sku,
       product_description:product.product_description
      });
+     this.total_qty += 1,
      this.presentToast('Product is Added'); 
-    this.statusChanged.emit({
+      this.statusChanged.emit({
       type: 'add',
       totalCount: this.cart.length
     });
@@ -41,19 +48,18 @@ export class CartProvider {
       totalCount: this.cart && this.cart.length ? this.cart.length : 0
     });
   };
-
   //calculate cart Item 
   calcTotalSum(): number {
     let sum = 0;
+   // let p_qty=1;
     if (!this.cart || !this.cart.length) {
       return sum;
     }
-    for (let i = 0; i < this.cart.length;  i = i + 1) {
-      sum = sum + this.cart[i].product_price;
+    for (let i = 0;  i < this.cart.length; i = i + 1) {
+      sum = sum  + this.cart[i].product_price;
     }
     return sum;
   }
-
     //Create Toast
     presentToast(msg) {
       let toast = this.toastCtrl.create({
@@ -62,5 +68,4 @@ export class CartProvider {
       });
       toast.present();
     }
-
 }

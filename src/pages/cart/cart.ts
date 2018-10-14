@@ -9,7 +9,7 @@ import { CheckoutPage } from '../checkout/checkout';
   templateUrl: 'cart.html',
 })
 export class CartPage implements OnInit {
-     product:any;
+    product:any;
     public index:number;
     public myAtta: string;
     public p_qty:number;
@@ -67,7 +67,6 @@ export class CartPage implements OnInit {
     this.p_qty +=  1;
     console.log(this.p_qty)
   }
-
   // decreement item
   decQty(){
     if(this.p_qty-1 < 1){

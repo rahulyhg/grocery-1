@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/delay';
-//let apiUrl = 'http://localhost/phpapi/api/';
-let apiUrl = 'https://vijaychauhanssn.000webhostapp.com/phpapi/api/';
+let apiUrl = 'http://localhost/phpapi/api/';
+//let apiUrl = 'https://vijaychauhanssn.000webhostapp.com/phpapi/api/';
+let apiUrlget = 'http://localhost/phpapi/api/'
 @Injectable()
 export class AuthServiceProvider {
   constructor(public http : Http) {
@@ -21,4 +22,18 @@ postData(credentials, type) {
         });
     });
   }
+
+  getData(credentials, type) {
+    return new Promise((resolve, reject) => {
+      return this.http.get(apiUrlget + type, JSON.stringify(credentials))
+         .map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+         // console.log(data);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
 }

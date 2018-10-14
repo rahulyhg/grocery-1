@@ -15,6 +15,7 @@ export class CheckoutPage implements OnInit {
   data:any = {};
   _body:any;
   value:any;
+  public p_qty:number;
   public product :any;
   cart: CartItem[] = [];
   constructor(public navCtrl: NavController,
