@@ -4,7 +4,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/delay';
 let apiUrl = 'http://localhost/phpapi/api/';
 //let apiUrl = 'https://vijaychauhanssn.000webhostapp.com/phpapi/api/';
-let apiUrlget = 'http://localhost/phpapi/api/'
+let apiUrlget = 'https://vijaychauhanssn.000webhostapp.com/phpapi/api/';
+//let apiUrlget = 'http://localhost/phpapi/api/'
 @Injectable()
 export class AuthServiceProvider {
   constructor(public http : Http) {
