@@ -1,45 +1,74 @@
 import { HttpClient } from '@angular/common/http';
-import {CartItem, Product} from '../../models';
-import {EventEmitter, Injectable} from '@angular/core';
+import { CartItem, Product } from '../../models';
+import { EventEmitter, Injectable } from '@angular/core';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/take';
 //import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-import {  ToastController} from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
 @Injectable()
 export class CartProvider {
 
-  total_qty=0;
+  total_qty = 0;
 
   public cart: CartItem[] = [];
   constructor(public http: HttpClient,
-              // public authServiceProvider: AuthServiceProvider
-              private toastCtrl: ToastController,
-              )
-           {
+    // public authServiceProvider: AuthServiceProvider
+    private toastCtrl: ToastController,
+  ) {
 
-           }
-  public statusChanged = new EventEmitter<{type: string; totalCount: number}>();
+  }
+  public statusChanged = new EventEmitter<{ type: string; totalCount: number }>();
   getCart(): CartItem[] {
     return this.cart;
   };
+
+  productExist(d, toCheck) {
+    let flag = 0;
+    console.log(toCheck);
+    for (let i = 0; i < d.length; i++) {
+      if (d[i].id == toCheck.id) {
+        console.log(toCheck.id);
+        flag = 1;
+      }
+    }
+
+    if (flag === 0) {
+      console.log('sending false');
+      return false;
+    } else {
+      console.log('sending true');
+      return true;
+    }
+
+  }
   addCartItem(product: Product): void {
-      this.cart.push({
-      id: product.id,
-      product_name: product.product_name,
-      product_price: product.product_price,
-      product_image:product.product_image,
-      product_manufacturer: product.product_manufacturer,
-      product_tags: product.product_tags,
-      product_sku:product.product_sku,
-      product_description:product.product_description
-     });
-     this.total_qty += 1,
-     this.presentToast('Product is Added'); 
+    this.cart.push(product);
+    let check = JSON.parse(localStorage.getItem('cart'));
+    if (check && check.length) {
+      if (this.productExist(check, product)) {
+        this.presentToast('Already existing');
+      } else {
+        product['qty'] = 1;
+        check.push(product);
+        localStorage.setItem('cart', JSON.stringify(check));
+        this.presentToast('Product is Added');
+        this.statusChanged.emit({
+          type: 'add',
+          totalCount: this.cart.length
+        });
+      }
+
+    } else {
+      product['qty'] = 1;
+      const final = JSON.stringify([product]);
+      localStorage.setItem('cart', final);
+      this.presentToast('Product is Added');
       this.statusChanged.emit({
-      type: 'add',
-      totalCount: this.cart.length
-    });
+        type: 'add',
+        totalCount: this.cart.length
+      });
+    }
   };
   removeCartItem(index): void {
     this.cart.splice(index, 1);
@@ -48,24 +77,24 @@ export class CartProvider {
       totalCount: this.cart && this.cart.length ? this.cart.length : 0
     });
   };
-  //calculate cart Item 
+  //calculate cart Item
   calcTotalSum(): number {
     let sum = 0;
-   // let p_qty=1;
+    // let p_qty=1;
     if (!this.cart || !this.cart.length) {
       return sum;
     }
-    for (let i = 0;  i < this.cart.length; i = i + 1) {
-      sum = sum  + this.cart[i].product_price;
+    for (let i = 0; i < this.cart.length; i = i + 1) {
+      sum = sum + this.cart[i].product_price;
     }
     return sum;
   }
-    //Create Toast
-    presentToast(msg) {
-      let toast = this.toastCtrl.create({
-        message: msg,
-        duration: 2000
-      });
-      toast.present();
-    }
+  //Create Toast
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
+  }
 }

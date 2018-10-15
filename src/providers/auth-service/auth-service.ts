@@ -29,6 +29,7 @@ postData(credentials, type) {
       return this.http.get(apiUrlget + type, JSON.stringify(credentials))
          .map(res => res.json())
         .subscribe(data => {
+          console.log(data);
           resolve(data);
          // console.log(data);
         }, (err) => {

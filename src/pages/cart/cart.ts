@@ -19,7 +19,7 @@ export class CartPage implements OnInit {
     public hideCart : boolean = false;
     cart: CartItem[] = [];
     constructor(public navCtrl: NavController,
-    public navParams: NavParams, 
+    public navParams: NavParams,
     private cartService: CartProvider,
     private  alertCtrl:AlertController,
     //public authServiceProvider:AuthServiceProvider
@@ -32,16 +32,16 @@ export class CartPage implements OnInit {
     localStorage.getItem('product_name');
     localStorage.getItem('product_price');
     }
-  
+
    ionViewDidLoad() {
     //this.p_id = this.navParams.data;
     //console.log(this.navParams.p_id)
     //console.log(this.myParam);
    }
-  
+
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
-    
+
   }
   ionViewDidEnter(): void {
     if (this.cart.length) {
@@ -59,6 +59,7 @@ export class CartPage implements OnInit {
     }
   }
   calcTotalSum() {
+    console.log('running')
     return this.cartService.calcTotalSum();
   }
   removeFromCart(index:any): void {
@@ -89,4 +90,3 @@ export class CartPage implements OnInit {
   }
 
 }
-  

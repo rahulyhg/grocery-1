@@ -1,62 +1,61 @@
-import {Component, OnInit} from '@angular/core';
-import {  NavController, NavParams, ToastController } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { CartPage } from '../cart/cart';
 import 'rxjs/add/operator/toPromise';
-import {CartProvider} from '../../providers/cart/cart.service';
-import {Product} from '../../models';
+import { CartProvider } from '../../providers/cart/cart.service';
+import { Product } from '../../models';
 import { SocialSharing } from '@ionic-native/social-sharing';
-import {CartItem} from '../../models';
-import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
-import {Common} from "../../providers/common";
+import { CartItem } from '../../models';
+import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
+import { Common } from "../../providers/common";
 
 @Component({
   selector: 'page-productdetails',
   templateUrl: 'productdetails.html',
 })
-export class ProductdetailsPage  implements OnInit {
-  
+export class ProductdetailsPage implements OnInit {
+
   myAtta: string = '';
   product: any;
   products: Product[] = [];
   cart: CartItem[] = [];
-  resposeData : any;
-  public index :number;
+  resposeData: any;
+  public index: number;
   constructor(public navCtrl: NavController,
-     public navParams: NavParams,
-     private cartService: CartProvider,
-     public authService : AuthServiceProvider,
-     private socialSharing: SocialSharing,
-     public toastCtrl:ToastController
-     )
-     {}
+    public navParams: NavParams,
+    private cartService: CartProvider,
+    public authService: AuthServiceProvider,
+    private socialSharing: SocialSharing,
+    public toastCtrl: ToastController
+  ) { }
   ionViewDidLoad() {
     this.product = this.navParams.data;
   }
-   addToCart($event,  product: Product, id, product_name, product_price) {
+
+  addToCart($event, product: Product, id, product_name, product_price) {
+    console.log(product);
     $event.stopPropagation();
     this.cartService.addCartItem(product);
-    localStorage.setItem('id', id);
-    localStorage.setItem('product_name', product_name);
-    localStorage.setItem('product_price', product_price);
-    console.log(this.product);
-    }
-  
-  ngOnInit(): void   {
-   this.cart = this.cartService.getCart();
+
+    // console.log(this.product);
   }
-  goToCart(){
+
+  ngOnInit(): void {
+    this.cart = this.cartService.getCart();
+  }
+  goToCart() {
     console.log();
     this.navCtrl.push(CartPage, { 'myAtta': this.myAtta });
-   }
-   shareInfo(){
+  }
+  shareInfo() {
     this.socialSharing.share("demo message", "Demo subject", "", "https://suryaapp.000webhostapp.com/").
-   then(() => {
-    alert("Sharing success");
-     // Success!
-     }).catch(() => {
-    // Error!
-    alert("Share failed");
-    });
+      then(() => {
+        alert("Sharing success");
+        // Success!
+      }).catch(() => {
+        // Error!
+        alert("Share failed");
+      });
   }
   //Create Toast
   presentToast(msg) {
