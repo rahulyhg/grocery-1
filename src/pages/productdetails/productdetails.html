@@ -35,7 +35,7 @@
 </ion-card-content>
   <ion-row no-padding>
       <ion-col>
-        <button ion-button clear small color="danger" icon-start (click)="addToCart($event, product)">
+        <button ion-button clear small color="danger" icon-start (click)="addToCart($event, product, product.id, product.product_name, product.product_price)">
           <ion-icon name='cart'></ion-icon>
         </button>
       </ion-col>

@@ -32,11 +32,15 @@ export class ProductdetailsPage  implements OnInit {
   ionViewDidLoad() {
     this.product = this.navParams.data;
   }
-   addToCart($event,  product: Product) {
+   addToCart($event,  product: Product, id, product_name, product_price) {
     $event.stopPropagation();
     this.cartService.addCartItem(product);
+    localStorage.setItem('id', id);
+    localStorage.setItem('product_name', product_name);
+    localStorage.setItem('product_price', product_price);
     console.log(this.product);
     }
+  
   ngOnInit(): void   {
    this.cart = this.cartService.getCart();
   }

@@ -13,8 +13,9 @@ export class CartPage implements OnInit {
     public index:number;
     public myAtta: string;
     public p_qty:number;
-    public product_name:string;
-    public product_price:string;
+    id:string;
+    product_name:string;
+    product_price:string;
     public hideCart : boolean = false;
     cart: CartItem[] = [];
     constructor(public navCtrl: NavController,
@@ -27,6 +28,9 @@ export class CartPage implements OnInit {
     this.p_qty= 1;
     this.myAtta = navParams.get('myAtta');
     console.log(this.myAtta);
+    localStorage.getItem('id');
+    localStorage.getItem('product_name');
+    localStorage.getItem('product_price');
     }
   
    ionViewDidLoad() {
@@ -37,6 +41,7 @@ export class CartPage implements OnInit {
   
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
+    
   }
   ionViewDidEnter(): void {
     if (this.cart.length) {
