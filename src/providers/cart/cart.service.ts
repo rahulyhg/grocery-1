@@ -25,7 +25,7 @@ export class CartProvider {
 
   productExist(d, toCheck) {
     let flag = 0;
-    console.log(toCheck);
+   // console.log(toCheck);
     for (let i = 0; i < d.length; i++) {
       if (d[i].id == toCheck.id) {
         console.log(toCheck.id);
@@ -34,10 +34,10 @@ export class CartProvider {
     }
 
     if (flag === 0) {
-      console.log('sending false');
+     // console.log('sending false');
       return false;
     } else {
-      console.log('sending true');
+     // console.log('sending true');
       return true;
     }
 
@@ -49,18 +49,14 @@ export class CartProvider {
       if (this.productExist(check, product)) {
         this.presentToast('Already existing');
       } else {
-        product['qty'] = 1;
+        product['p_qty'] = 1;
         check.push(product);
         localStorage.setItem('cart', JSON.stringify(check));
-        this.presentToast('Product is Added');
-        this.statusChanged.emit({
-          type: 'add',
-          totalCount: this.cart.length
-        });
+        this.presentToast('Product is Added')
       }
 
     } else {
-      product['qty'] = 1;
+      product['p_qty'] = 1;
       const final = JSON.stringify([product]);
       localStorage.setItem('cart', final);
       this.presentToast('Product is Added');

@@ -32,11 +32,10 @@ export class ProductdetailsPage implements OnInit {
     this.product = this.navParams.data;
   }
 
-  addToCart($event, product: Product, id, product_name, product_price) {
+  addToCart($event, product: Product) {
     console.log(product);
     $event.stopPropagation();
     this.cartService.addCartItem(product);
-
     // console.log(this.product);
   }
 
@@ -44,7 +43,6 @@ export class ProductdetailsPage implements OnInit {
     this.cart = this.cartService.getCart();
   }
   goToCart() {
-    console.log();
     this.navCtrl.push(CartPage, { 'myAtta': this.myAtta });
   }
   shareInfo() {
