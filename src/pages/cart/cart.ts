@@ -22,6 +22,7 @@ export class CartPage implements OnInit {
     //public authServiceProvider:AuthServiceProvider
     )
     {
+    this.p_qty=1;
     this.myAtta = navParams.get('myAtta');
     console.log(this.myAtta);
     }
@@ -58,6 +59,9 @@ export class CartPage implements OnInit {
      sessionStorage.clear();
   }
   //increement item
+  quantityPlus(product){
+      this.cartService.quantityPlus(product);
+  }
   incQty(){
     //this.cart.p_qty + 1;
     this.p_qty +=  1;

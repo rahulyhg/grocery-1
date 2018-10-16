@@ -1,73 +1,94 @@
-[  
-      {  
-         "id":1,
-         "name":"New Chicken Maharaja",
-         "description":"Product Description",
-         "image":"chicken_maharaja",
-         "price":183
-      },
-      {  
-         "id":2,
-         "name":"Big Spicy Chicken Wrap",
-         "description":"Product Description",
-         "image":"big_spicy_chicken_wrap",
-         "price":172
-      },
-      {  
-         "id":3,
-         "name":"Big Spicy Paneer Wrap",
-         "description":"Product Description",
-         "image":"big_spicy_paneer_wrap",
-         "price":167
-      },
-      {  
-         "id":4,
-         "name":"Veg Maharaja Mac",
-         "description":"Product Description",
-         "image":"veg_maharaja",
-         "price":177
-      },
-      {  
-         "id":5,
-         "name":"McSpicy Chicken",
-         "description":"Product Description",
-         "image":"Mcspicy_chicken",
-         "price":123
-      },
-      {  
-         "id":6,
-         "name":"McSpicy Paneer",
-         "description":"Product Description",
-         "image":"McSpicy_paneer",
-         "price":147
-      },
-      {  
-         "id":7,
-         "name":"Filet-O-Fish",
-         "description":"Product Description",
-         "image":"filet_o_fish",
-         "price":167
-      },
-      {  
-         "id":8,
-         "name":"Salad wrap",
-         "description":"Product Description",
-         "image":"salad_wrap",
-         "price":127
-      },
-      {  
-         "id":9,
-         "name":"McChicken",
-         "description":"Product Description",
-         "image":"mc_chicken",
-         "price":167
-      },
-      {  
-         "id":10,
-         "name":"McVeggie",
-         "description":"Product Description",
-         "image":"mc_veggie",
-         "price":127
-      }
-   ]
-
+{
+  "productData": [
+    {
+      "id": 6,
+      "product_name": "P",
+      "product_manufacturer": "Rrer",
+      "product_sn": "5",
+      "product_tags": "lte,quad_hd,android_5,64gb",
+      "product_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam necessitatibus suscipit velit voluptatibus! Ab accusamus ad adipisci alias aliquid at atque consectetur, dicta dignissimos, distinctio dolores esse fugiat iste laborum libero magni maiores maxime modi nemo neque, nesciunt nisi nulla optio placeat quas quia quibusdam quis saepe sit ullam!",
+      "product_price": 40,
+      "product_tax": "18",
+      "product_quantity": "120",
+      "product_sku": "4319572394",
+      "product_image": "https:\/\/images-na.ssl-images-amazon.com\/images\/I\/51rya9i-ufL.jpg",
+      "product_active": "on",
+      "created": "2018-10-10 08:09:24"
+    },
+    {
+      "id": 5,
+      "product_name": "Product 1",
+      "product_manufacturer": "Product 1",
+      "product_sn": "56565",
+      "product_tags": "lte,quad_hd,android_5,64gb",
+      "product_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam necessitatibus suscipit velit voluptatibus! Ab accusamus ad adipisci alias aliquid at atque consectetur, dicta dignissimos, distinctio dolores esse fugiat iste laborum libero magni maiores maxime modi nemo neque, nesciunt nisi nulla optio placeat quas quia quibusdam quis saepe sit ullam!",
+      "product_price": 30,
+      "product_tax": "18",
+      "product_quantity": "120",
+      "product_sku": "4319572394",
+      "product_image": "https:\/\/images-na.ssl-images-amazon.com\/images\/I\/51rya9i-ufL.jpg",
+      "product_active": "on",
+      "created": "2018-10-10 08:07:49"
+    },
+    {
+      "id": 4,
+      "product_name": "New",
+      "product_manufacturer": "Manf",
+      "product_sn": "5656",
+      "product_tags": "lte,quad_hd,android_5,64gb",
+      "product_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam necessitatibus suscipit velit voluptatibus! Ab accusamus ad adipisci alias aliquid at atque consectetur, dicta dignissimos, distinctio dolores esse fugiat iste laborum libero magni maiores maxime modi nemo neque, nesciunt nisi nulla optio placeat quas quia quibusdam quis saepe sit ullam!",
+      "product_price": 40,
+      "product_tax": "18",
+      "product_quantity": "120",
+      "product_sku": "4319572394",
+      "product_image": "https:\/\/images-na.ssl-images-amazon.com\/images\/I\/51rya9i-ufL.jpg",
+      "product_active": "on",
+      "created": "2018-10-10 08:01:04"
+    },
+    {
+      "id": 3,
+      "product_name": "Dettol Original Soap,BUY 3 GET 1 FREE Dettol Original Soap, 125g",
+      "product_manufacturer": "Manf",
+      "product_sn": "5656",
+      "product_tags": "lte,quad_hd,android_5,64gb",
+      "product_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam necessitatibus suscipit velit voluptatibus! Ab accusamus ad adipisci alias aliquid at atque consectetur, dicta dignissimos, distinctio dolores esse fugiat iste laborum libero magni maiores maxime modi nemo neque, nesciunt nisi nulla optio placeat quas quia quibusdam quis saepe sit ullam!",
+      "product_price": 130,
+      "product_tax": "18",
+      "product_quantity": "120",
+      "product_sku": "4319572394",
+      "product_image": "https:\/\/images-na.ssl-images-amazon.com\/images\/I\/61tIX-YbEvL._SL1000_.jpg",
+      "product_active": "on",
+      "created": "2018-10-10 08:00:21"
+    },
+    {
+      "id": 2,
+      "product_name": "Agro Fresh Premium Sooji Rawa, 500g",
+      "product_manufacturer": "New Manufacture",
+      "product_sn": "NSN",
+      "product_tags": "lte,quad_hd,android_5,64gb",
+      "product_description": "Agro Fresh believes that our reputation must be based on the quality of our products. We have travelled across the country to handpick the finest quality products at the best possible rates.",
+      "product_price": 40,
+      "product_tax": "18",
+      "product_quantity": "120",
+      "product_sku": "4319572394",
+      "product_image": "https:\/\/images-na.ssl-images-amazon.com\/images\/I\/91fxw8UaWPL._SL1500_.jpg",
+      "product_active": "on",
+      "created": "2018-10-10 05:01:40"
+    },
+    {
+      "id": 1,
+      "product_name": "Tata Salt, 1kg",
+      "product_manufacturer": "Manufacture",
+      "product_sn": "78455SDFS",
+      "product_tags": "lte,quad_hd,android_5,64gb",
+      "product_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam necessitatibus suscipit velit voluptatibus! Ab accusamus ad adipisci alias aliquid at atque consectetur, dicta dignissimos, distinctio dolores esse fugiat iste laborum libero magni maiores maxime modi nemo neque, nesciunt nisi nulla optio placeat quas quia quibusdam quis saepe sit ullam!",
+      "product_price": 18,
+      "product_tax": "18",
+      "product_quantity": "120",
+      "product_sku": "4319572394",
+      "product_image": "https:\/\/images-na.ssl-images-amazon.com\/images\/I\/51rya9i-ufL.jpg",
+      "product_active": "on",
+      "created": "2018-10-10 04:57:25"
+    }
+  ]
+}

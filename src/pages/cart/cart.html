@@ -34,7 +34,7 @@
         </button>
       </ion-col>
       <ion-col text-center>
-        <button ion-button clear small color="danger" icon-start (click)="incQty()">
+        <button ion-button clear small color="danger" icon-start (click)="quantityPlus(product)">
           <ion-icon ios="ios-add" md="md-add"></ion-icon>
         </button>
       </ion-col>
@@ -59,10 +59,10 @@
 <ion-footer no-padding no-margin *ngIf="!hideCart">
     <ion-row>
         <ion-col col-6>
-           <button ion-button full large color="header" no-padding no-margin *ngIf="cart.length"> Total: ₹{{calcTotalSum()}} </button>
+           <button ion-button full large color="header" no-padding no-margin *ngIf="cart.length"> Total: ₹ {{p_qty*calcTotalSum()}} </button>
         </ion-col>
         <ion-col col-6>
            <button ion-button full large color="header" no-padding no-margin  *ngIf="cart.length"  (click)="goCheckout()">Checkout &nbsp; <ion-icon name="card"></ion-icon></button>
         </ion-col>
-    </ion-row>   
+    </ion-row>
 </ion-footer>

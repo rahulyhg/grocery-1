@@ -25,7 +25,7 @@ export class CartProvider {
 
   productExist(d, toCheck) {
     let flag = 0;
-   // console.log(toCheck);
+    console.log(toCheck);
     for (let i = 0; i < d.length; i++) {
       if (d[i].id == toCheck.id) {
         console.log(toCheck.id);
@@ -34,38 +34,40 @@ export class CartProvider {
     }
 
     if (flag === 0) {
-     // console.log('sending false');
+      console.log('sending false');
       return false;
     } else {
-     // console.log('sending true');
+      console.log('sending true');
       return true;
     }
 
   }
   addCartItem(product: Product): void {
-    this.cart.push(product);
     let check = JSON.parse(localStorage.getItem('cart'));
     if (check && check.length) {
-      if (this.productExist(check, product)) {
-        this.presentToast('Already existing');
-      } else {
-        product['p_qty'] = 1;
-        check.push(product);
-        localStorage.setItem('cart', JSON.stringify(check));
-        this.presentToast('Product is Added')
-      }
-
-    } else {
-      product['p_qty'] = 1;
+    if (this.productExist(check, product)) {
+      this.presentToast('Already existing');
+    }
+    else{
+     this.cart.push(product);
       const final = JSON.stringify([product]);
       localStorage.setItem('cart', final);
       this.presentToast('Product is Added');
-      this.statusChanged.emit({
-        type: 'add',
-        totalCount: this.cart.length
-      });
+    }
+   }
+    else{
+      this.cart.push(product);
+      const final = JSON.stringify([product]);
+      localStorage.setItem('cart', final);
+      this.presentToast('Product is Added');
     }
   };
+  quantityPlus(product){
+        product.quantity += 1;
+    }
+  quantityMinus(product){
+      product.quantity -= 1;
+    }
   removeCartItem(index): void {
     this.cart.splice(index, 1);
     this.statusChanged.emit({
