@@ -54,13 +54,13 @@ export class CartPage implements OnInit {
     return this.cartService.calcTotalSum();
   }
   removeFromCart(index:any): void {
-    this.cartService.removeCartItem(index);
+   this.cartService.removeCartItem(index);
      this.index -= 1;
      sessionStorage.clear();
   }
   //increement item
-  quantityPlus(product){
-      this.cartService.quantityPlus(product);
+  quantityPlus(product) : void{
+     this.cartService.quantityPlus(product);
   }
   incQty(){
     //this.cart.p_qty + 1;
