@@ -8,6 +8,9 @@ import { ToastController } from 'ionic-angular';
 
 @Injectable()
 export class CartProvider {
+
+  total_qty = 0;
+
   public cart: CartItem[] = [];
   constructor(public http: HttpClient,
     // public authServiceProvider: AuthServiceProvider
@@ -40,18 +43,20 @@ export class CartProvider {
 
   }
   addCartItem(product: Product): void {
+    this.cart.push(product);
     let check = JSON.parse(localStorage.getItem('cart'));
     if (check && check.length) {
-      this.cart.push(product);
       if (this.productExist(check, product)) {
         this.presentToast('Already existing');
       } else {
+        product['p_qty'] = 1;
         check.push(product);
         localStorage.setItem('cart', JSON.stringify(check));
         this.presentToast('Product is Added')
       }
 
     } else {
+      product['p_qty'] = 1;
       const final = JSON.stringify([product]);
       localStorage.setItem('cart', final);
       this.presentToast('Product is Added');
