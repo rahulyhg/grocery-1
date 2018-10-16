@@ -1,34 +1,33 @@
 <ion-header>
-   <ion-navbar>
-      <button ion-button menuToggle>
-         <ion-icon name="menu"></ion-icon>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+    <ion-buttons right (click)="goToCart('CartPage')">
+      <button ion-button icon-only>
+        <ion-badge color="dark" *ngIf="cart.length">{{cart.length}}</ion-badge>
+        <ion-icon name="cart"></ion-icon>
       </button>
-      <ion-title>Home</ion-title>
-      <ion-buttons right (click)="goToCart('CartPage')">
-         <button ion-button icon-only>
-            <ion-badge color="dark"  *ngIf="cart.length" >{{cart.length}}</ion-badge>
-            <ion-icon name="cart"></ion-icon>
-         </button>
-      </ion-buttons>
-   </ion-navbar>
-    <ion-toolbar>
-    <ion-searchbar
-      [(ngModel)]="search">
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="search">
     </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-<ion-slides pager autoplay="5000" loop="true" speed="500" >
+  <ion-slides pager autoplay="5000" loop="true" speed="500">
     <ion-slide *ngFor="let slide of slides">
-      <img [src]="slide.image" class="slide-image"/>
+      <img [src]="slide.image" class="slide-image" />
     </ion-slide>
-</ion-slides>
+  </ion-slides>
   <ks-swiper-container [options]="options">
-    <ks-swiper-slide *ngFor="let slide of items_a" >
+    <ks-swiper-slide *ngFor="let slide of items_a">
       <ion-list class="list-card" no-lines no-margin>
         <div class="cardInnerWrap">
-          <img src="{{ slide.gameImage }}" style="width: 50px !important; height: 50px; margin:0 auto" >
-            <ion-item style="font-size: 10px">
+          <img src="{{ slide.gameImage }}" style="width: 50px !important; height: 50px; margin:0 auto">
+          <ion-item style="font-size: 10px">
             {{ slide.gameTitle }}
           </ion-item>
         </div>
@@ -37,35 +36,35 @@
   </ks-swiper-container>
   <ion-grid>
     <!--Fetch Data in Api-->
-   <ion-row>
-    <ion-col *ngFor="let product of products |  productSearch:search"  col-6>
-      <ion-card no-padding no-margin style="width: 100%">
-      <img src="{{product.product_image}}" (click)="openProduct(product)">
-       <ion-card-content>
-      <h4 ion-text color="primary"> {{product.product_name}} </h4>
-        <p >Price: ${{product.product_price}}</p>
-      </ion-card-content>
-      <div class="cart-buttons">
-         <button *ngIf="product.quantityInCart" color="light" ion-button small>
-         {{product.quantityInCart}}
-         </button>
-      </div>
-      <div class="cart-buttons" float-left>
-      <ion-col text-left>
-        <button ion-button clear small color="danger" icon-start (click)="shareInfo()">
-          <ion-icon name='share-alt'></ion-icon>
-        </button>
+    <ion-row>
+      <ion-col *ngFor="let product of products |  productSearch:search" col-6>
+        <ion-card no-padding no-margin style="width: 100%">
+          <img src="{{product.product_image}}" (click)="openProduct(product)">
+          <ion-card-content>
+            <h4 ion-text color="primary"> {{product.product_name}} </h4>
+            <p>Price: ${{product.product_price}}</p>
+          </ion-card-content>
+          <div class="cart-buttons">
+            <button *ngIf="product.quantityInCart" color="light" ion-button small>
+              {{product.quantityInCart}}
+            </button>
+          </div>
+          <div class="cart-buttons" float-left>
+            <ion-col text-left>
+              <button ion-button clear small color="danger" icon-start (click)="shareInfo()">
+                <ion-icon name='share-alt'></ion-icon>
+              </button>
+            </ion-col>
+          </div>
+          <div class="cart-buttons" float-right>
+            <ion-col text-right>
+              <button ion-button clear small color="danger" icon-end>
+                <ion-icon name='heart'></ion-icon>
+              </button>
+            </ion-col>
+          </div>
+        </ion-card>
       </ion-col>
-      </div>
-      <div class="cart-buttons" float-right>
-      <ion-col text-right>
-        <button ion-button clear small color="danger" icon-end>
-          <ion-icon name='heart'></ion-icon>
-        </button>
-      </ion-col>
-      </div>
-   </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+    </ion-row>
+  </ion-grid>
 </ion-content>
